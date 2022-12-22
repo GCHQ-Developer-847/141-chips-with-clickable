@@ -1,0 +1,192 @@
+@import "../../global/normalise.css";
+
+:host {
+  display: inline-block;
+}
+
+.chip {
+  padding: var(--ic-space-xxs);
+  font-size: 14px;
+  border-radius: 80px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.label {
+  padding: 0 var(--ic-space-xs);
+}
+
+.container {
+  display: inline-block;
+}
+
+.chip.dismissible {
+  padding-right: calc(var(--ic-space-lg) + var(--ic-space-xxs));
+  margin-right: calc((var(--ic-space-lg) + var(--ic-space-xxxs)) * -1);
+}
+
+.chip.dismissible.small {
+  padding-right: calc(var(--ic-space-lg) + var(--ic-space-xxxs));
+  margin-right: calc(var(--ic-space-lg) * -1);
+}
+
+.chip.dismissible.large {
+  padding-right: var(--ic-space-xl);
+  margin-right: calc((var(--ic-space-xl) - var(--ic-space-xxxs)) * -1);
+}
+
+.chip.small {
+  padding: var(--ic-space-xxxs);
+}
+
+.chip.large {
+  padding: var(--ic-space-xs);
+}
+
+.chip.dismissible .content-container {
+  justify-content: space-between;
+}
+
+.content-container {
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.content-container,
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.chip.clickable {
+  transition: var(--ic-easing-transition-fast);
+}
+
+.chip.clickable:focus,
+.chip.clickable.focussed {
+  box-shadow: var(--ic-border-focus);
+  outline: var(--ic-hc-focus-outline);
+  z-index: 1;
+}
+
+.chip.clickable:focus ~ ic-tooltip,
+.chip.clickable.focussed ~ ic-tooltip {
+  z-index: 1;
+}
+
+.filled {
+  background-color: var(--ic-architectural-200);
+  color: black;
+  border: none;
+}
+
+.filled.disabled {
+  background-color: var(--ic-architectural-100);
+}
+
+.filled.clickable:hover:not(:focus, .focussed),
+.dismiss-icon:hover:not(:focus, .focussed) {
+  background-color: var(--ic-architectural-300);
+  cursor: pointer;
+}
+
+.filled.clickable:active:not(:focus, .focussed),
+.dismiss-icon:active:not(:focus, .focussed) {
+  background-color: var(--ic-architectural-400);
+}
+
+.outline {
+  color: var(--ic-architectural-900);
+  border: 1px solid var(--ic-architectural-900);
+  padding: calc(var(--ic-space-xxs) - 1px);
+}
+
+.outline.small {
+  padding: calc(var(--ic-space-xxxs) - 1px);
+}
+
+.outline.large {
+  padding: calc(var(--ic-space-xs) - 1px);
+}
+
+.outline.clickable {
+  background: none;
+}
+
+.outline.clickable:hover:not(:focus, .focussed),
+.outline ~ ic-tooltip .dismiss-icon:hover:not(:focus, .focussed) {
+  background-color: var(--ic-action-dark-bg-hover);
+  cursor: pointer;
+}
+
+.outline.clickable:active:not(:focus, .focussed),
+.outline ~ ic-tooltip .dismiss-icon:active:not(:focus, .focussed) {
+  background-color: var(--ic-action-dark-bg-active);
+}
+
+.outline.disabled {
+  border: var(--ic-border-disabled);
+  background: none;
+}
+
+.chip.disabled ic-typography {
+  color: var(--ic-architectural-200);
+}
+
+.dismiss-icon {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  transition: var(--ic-easing-transition-fast);
+}
+
+.dismiss-icon,
+ic-tooltip {
+  height: 20px;
+}
+
+ic-tooltip {
+  margin-right: calc(var(--ic-space-xxs) + var(--ic-space-xxxs));
+}
+
+.chip.small ~ ic-tooltip {
+  margin-right: var(--ic-space-xxs);
+}
+
+.chip.large ~ ic-tooltip {
+  margin-right: calc(var(--ic-space-xs) + var(--ic-space-xxxs));
+}
+
+.dismiss-icon:focus {
+  box-shadow: var(--ic-border-focus);
+  outline: var(--ic-hc-focus-outline);
+}
+
+.dismiss-icon[disabled] {
+  pointer-events: none;
+  color: var(--ic-architectural-200);
+}
+
+.icon {
+  width: var(--ic-space-lg);
+  height: var(--ic-space-lg);
+  padding: var(--ic-space-xxxs);
+  box-sizing: border-box;
+}
+
+.chip.dismissible.small .icon {
+  padding-left: var(--ic-space-xxxs);
+}
+
+.chip.disabled path,
+.chip.disabled ::slotted(svg) {
+  fill: var(--ic-architectural-200);
+}
+
+@media (forced-colors: active) {
+  .chip {
+    border: var(--ic-hc-border);
+  }
+}
